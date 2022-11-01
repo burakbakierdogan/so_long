@@ -6,11 +6,12 @@ L_CONFG := -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 
 
 
-all: $(NAME) $(SRCS)
+all: Libft $(NAME)
 
-$(NAME): Libft
-	$(CC) $(CFLAGS) -o $(NAME) $(SRCS) ./libft/libft.a $(L_CONFG)
+$(NAME): $(SRCS)
+	$(CC) $(CFLAGS) -o $(NAME) $(SRCS) libft/libft.a $(L_CONFG)
 Libft:
 	make -C ./libft
 clean:
 	make -C ./libft fclean
+	rm -rf so_long
