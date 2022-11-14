@@ -6,7 +6,7 @@
 /*   By: berdogan <berdogan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:12:09 by berdogan          #+#    #+#             */
-/*   Updated: 2022/11/14 17:11:02 by berdogan         ###   ########.fr       */
+/*   Updated: 2022/11/15 01:02:33 by berdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,4 +16,5 @@
 #include "libft/libft.h"
 
 char	**ft_error_management(int fd);
+void	ft_check_walls(char **map);
 #endif
