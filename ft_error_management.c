@@ -6,7 +6,7 @@
 /*   By: berdogan <berdogan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:13:47 by berdogan          #+#    #+#             */
-/*   Updated: 2022/11/14 23:10:12 by berdogan         ###   ########.fr       */
+/*   Updated: 2022/11/15 00:56:15 by berdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static	void	ft_check_side_walls(char **map)
 	{
 		if (map[i][0] != '1' || map[i][j] != '1')
 		{
-			ft_printf("side wall :error\n");
+			ft_printf("error\n");
 			exit(1);
 		}
 		i--;
@@ -46,17 +46,16 @@ static	void	ft_check_bottom_wall(char **map)
 	while (map[i])
 		i++;
 	i--;
-	ft_printf("%s\n", map[i][j]);
 	if (i < 2)
 	{
-		ft_printf("edsef error\n");
+		ft_printf("error\n");
 		exit (1);
 	}
 	while (map[i][j])
 	{
 		if (map[i][j] != '1')
 		{
-			ft_printf("b: error\n");
+			ft_printf("error\n");
 			exit(1);
 		}
 		j++;
@@ -77,15 +76,15 @@ static	void	ft_check_top_wall(char **map)
 	{
 		if (map[0][i] != '1')
 		{
-			ft_printf ("top :error\n");
+			ft_printf ("error\n");
 			exit (1);
 		}
 		i++;
 	}
 	i--;
-	if (i < 2 || i-1 == j)
+	if (i < 2 || i == j)
 	{
-		ft_printf (" a error\n");
+		ft_printf ("error\n");
 		exit (1);
 	}
 }
@@ -103,20 +102,22 @@ char	**ft_error_management(int fd)
 	int		i;
 
 	i = 0;
-	ft_printf("%d\n", fd);
 	map = (char **) malloc (sizeof(char *) * 1000);
 	if (!map)
 		return (NULL);
 	str = get_next_line (fd);
-	ft_printf("%d\n", str);
 	map[i++] = str;
-
 	while (str)
 	{
 		str = get_next_line(fd);
 		map[i++] = str;
 	}
-	//close (fd);
+	i = 0;
+	ft_check(map);
+	ft_printf("OK\n");
+	close (fd);
+	return(map);
+
 }
 
 /*
