@@ -6,7 +6,7 @@
 /*   By: berdogan <berdogan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:13:47 by berdogan          #+#    #+#             */
-/*   Updated: 2022/11/15 01:42:25 by berdogan         ###   ########.fr       */
+/*   Updated: 2022/11/15 01:44:51 by berdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ char	**ft_error_management(int fd)
 	i = 0;
 	ft_check_walls(map);
 	ft_check_items(map);
-	//ft_printf("OK\n");
 	close (fd);
 	return(map);
 }
