@@ -6,7 +6,7 @@
 /*   By: berdogan <berdogan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 01:01:07 by berdogan          #+#    #+#             */
-/*   Updated: 2022/11/15 01:03:06 by berdogan         ###   ########.fr       */
+/*   Updated: 2022/11/15 01:35:04 by berdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static	void	ft_check_side_walls(char **map)
 	{
 		if (map[i][0] != '1' || map[i][j] != '1')
 		{
-			ft_printf("error\n");
+			ft_printf("Error\n");
 			exit(1);
 		}
 		i--;
@@ -48,14 +48,14 @@ static	void	ft_check_bottom_wall(char **map)
 	i--;
 	if (i < 2)
 	{
-		ft_printf("error\n");
+		ft_printf("Error\n");
 		exit (1);
 	}
 	while (map[i][j])
 	{
 		if (map[i][j] != '1')
 		{
-			ft_printf("error\n");
+			ft_printf("Error\n");
 			exit(1);
 		}
 		j++;
@@ -76,7 +76,7 @@ static	void	ft_check_top_wall(char **map)
 	{
 		if (map[0][i] != '1')
 		{
-			ft_printf ("error\n");
+			ft_printf ("Error\n");
 			exit (1);
 		}
 		i++;
@@ -84,7 +84,7 @@ static	void	ft_check_top_wall(char **map)
 	i--;
 	if (i < 2 || i == j)
 	{
-		ft_printf ("error\n");
+		ft_printf ("Error\n");
 		exit (1);
 	}
 }
