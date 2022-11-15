@@ -6,7 +6,7 @@
 /*   By: berdogan <berdogan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:10:31 by berdogan          #+#    #+#             */
-/*   Updated: 2022/11/15 05:28:17 by berdogan         ###   ########.fr       */
+/*   Updated: 2022/11/15 05:29:14 by berdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,8 @@ static	void	ft_test()
 			y = 0;
 			x++;
 		}
-	while (1)
-		mlx_put_image_to_window(mlx, mlx_window, img.img, 0, 0);
-	//mlx_loop(mlx);
+	mlx_put_image_to_window(mlx, mlx_window, img.img, 0, 0);
+	mlx_loop(mlx);
 }
 
 int main(int ac, char *argv[])
