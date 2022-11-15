@@ -6,7 +6,7 @@
 /*   By: berdogan <berdogan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:10:31 by berdogan          #+#    #+#             */
-/*   Updated: 2022/11/15 05:29:14 by berdogan         ###   ########.fr       */
+/*   Updated: 2022/11/15 05:30:01 by berdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,15 +44,14 @@ static	void	ft_test()
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
 
 	x = 0;
-	y = 9;
-	//ft_my_pixel_put(&img, x++, y, 0x00FF0000);
-		while (x < 50)
-		{
-			while (y < 50)
-				ft_my_pixel_put(&img, x, y++, 0x96FF00FF);
-			y = 0;
-			x++;
-		}
+	y = 0;
+	while (x < 50)
+	{
+		while (y < 50)
+			ft_my_pixel_put(&img, x, y++, 0x96FF00FF);
+		y = 0;
+		x++;
+	}
 	mlx_put_image_to_window(mlx, mlx_window, img.img, 0, 0);
 	mlx_loop(mlx);
 }
