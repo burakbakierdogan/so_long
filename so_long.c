@@ -6,7 +6,7 @@
 /*   By: berdogan <berdogan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:10:31 by berdogan          #+#    #+#             */
-/*   Updated: 2022/11/15 05:30:01 by berdogan         ###   ########.fr       */
+/*   Updated: 2022/11/18 06:32:55 by berdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,14 @@ static	void	ft_test()
 		y = 0;
 		x++;
 	}
-	mlx_put_image_to_window(mlx, mlx_window, img.img, 0, 0);
+	void *res;
+	int a;
+	int b;
+	a = 48;
+	b = 48;
+	res = mlx_xpm_file_to_image(mlx,"./dene.xpm",&a,&b);
+	mlx_put_image_to_window(mlx, mlx_window, res, 0, 0);
+	mlx_put_image_to_window(mlx, mlx_window, res, 20, 0);
 	mlx_loop(mlx);
 }
 
