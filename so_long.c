@@ -6,60 +6,68 @@
 /*   By: berdogan <berdogan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:10:31 by berdogan          #+#    #+#             */
-/*   Updated: 2022/11/18 06:32:55 by berdogan         ###   ########.fr       */
+/*   Updated: 2022/11/20 10:37:37 by berdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 #include "mlx.h"
 
+typedef struct	s_vars {
+	void	*mlx;
+	void	*win;
+	void	*img1;
+	void	*img2;
+}				t_vars;
 
-typedef struct	s_data {
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}				t_data;
-
-void	ft_my_pixel_put(t_data *data, int x, int y, int color)
+int	ft_close(int keycode, t_vars *vars)
 {
-	char	*dst;
-
-	dst = data -> addr + (y * data -> line_length + x * (data -> bits_per_pixel / 8));
-	*(unsigned int *) dst = color;
+	if (keycode)
+		mlx_put_image_to_window(vars -> mlx, vars -> win, vars -> img2, 0, 0);
+	mlx_put_image_to_window(vars->mlx, vars -> win, vars -> img1, 64, 0);
+	return (0);
 }
 
 static	void	ft_test()
 {
-	t_data	img;
 	void	*mlx;
 	void	*mlx_window;
 	int		x;
 	int		y;
+	void	*res;
+	void	*res2;
+	t_vars	vars;
 
 	mlx = mlx_init();
-	mlx_window = mlx_new_window(mlx, 500, 500, "burak");
-	img.img = mlx_new_image(mlx, 500,500);
-	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
-
+	mlx_window = mlx_new_window(mlx, 448, 480, "burak");
 	x = 0;
 	y = 0;
-	while (x < 50)
-	{
-		while (y < 50)
-			ft_my_pixel_put(&img, x, y++, 0x96FF00FF);
-		y = 0;
-		x++;
-	}
-	void *res;
-	int a;
-	int b;
-	a = 48;
-	b = 48;
-	res = mlx_xpm_file_to_image(mlx,"./dene.xpm",&a,&b);
+	res = mlx_xpm_file_to_image(mlx,"./dene.xpm", &x,&y);
+	res2 = mlx_xpm_file_to_image(mlx,"./ground.xpm", &x,&y);
+	vars.mlx = mlx;
+	vars.win = mlx_window;
+	vars.img1 = res;
+	vars.img2 = res2;
+	mlx_put_image_to_window(mlx, mlx_window, res2, 0, 0);
+	mlx_put_image_to_window(mlx, mlx_window, res2, 64, 0);
+	mlx_put_image_to_window(mlx, mlx_window, res2, 128, 0);
+	mlx_put_image_to_window(mlx, mlx_window, res2, 192, 0);
+	mlx_put_image_to_window(mlx, mlx_window, res2, 256, 0);
+	mlx_put_image_to_window(mlx, mlx_window, res2, 320, 0);
+	mlx_put_image_to_window(mlx, mlx_window, res2, 384, 0);
+	mlx_put_image_to_window(mlx, mlx_window, res2, 448, 0);
+	mlx_put_image_to_window(mlx, mlx_window, res2, 0, 64);
+	mlx_put_image_to_window(mlx, mlx_window, res2, 64, 64);
+	mlx_put_image_to_window(mlx, mlx_window, res2, 128, 64);
+	mlx_put_image_to_window(mlx, mlx_window, res2, 192, 64);
+	mlx_put_image_to_window(mlx, mlx_window, res2, 256, 64);
+	mlx_put_image_to_window(mlx, mlx_window, res2, 320, 64);
+	mlx_put_image_to_window(mlx, mlx_window, res2, 384, 64);
+	mlx_put_image_to_window(mlx, mlx_window, res2, 448, 64);
 	mlx_put_image_to_window(mlx, mlx_window, res, 0, 0);
-	mlx_put_image_to_window(mlx, mlx_window, res, 20, 0);
+
+	mlx_hook(vars.win, 2, 1L<<0, ft_close, &vars);
+
 	mlx_loop(mlx);
 }
 
