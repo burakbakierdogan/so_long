@@ -6,13 +6,13 @@
 /*   By: berdogan <berdogan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:10:31 by berdogan          #+#    #+#             */
-/*   Updated: 2022/11/20 12:42:37 by berdogan         ###   ########.fr       */
+/*   Updated: 2022/11/20 22:47:44 by berdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 #include "mlx.h"
-
+/*
 typedef struct	s_vars {
 	void	*mlx;
 	void	*win;
@@ -104,21 +104,9 @@ static	void	ft_test()
 
 	mlx_loop(mlx);
 }
-
+*/
 int main(int ac, char *argv[])
 {
-	char	**map;
-	int		i;
 
-	if (ac != 2)
-	{
-		ft_printf("Error\n");
-		return (1);
-	}
-	map = ft_error_management (open (argv[1], O_RDONLY));
-	i = 0;
-	while (map[i])
-		free(map[i++]);
-	free(map);
-	ft_test();
+	ft_error_management (open (argv[1], O_RDONLY),ac, argv[1]);
 }
