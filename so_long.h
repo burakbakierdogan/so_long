@@ -6,7 +6,7 @@
 /*   By: berdogan <berdogan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:12:09 by berdogan          #+#    #+#             */
-/*   Updated: 2022/11/21 06:13:37 by berdogan         ###   ########.fr       */
+/*   Updated: 2022/11/21 08:26:47 by berdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,17 @@ typedef struct s_map
 	int	ex[2];
 }	t_map;
 
+typedef struct s_mlx
+{
+	void	*mlx;
+	void	*mlx_window;
+	void	*wall;
+	void	*collectible;
+	void	*space;
+	void	*ext;
+	void	*player;
+}	t_mlx;
+
 typedef struct s_counters
 {
 	int	i;
@@ -40,4 +51,5 @@ void	ft_check_walls(char **map);
 void	ft_check_items(char **map);
 void	ft_get_map_data(t_map *map, char **map_src);
 void	ft_free_map_src(char **map_src);
+void	ft_put_map(t_map *map, t_mlx *obj);
 #endif

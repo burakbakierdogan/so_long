@@ -6,7 +6,7 @@
 /*   By: berdogan <berdogan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:10:31 by berdogan          #+#    #+#             */
-/*   Updated: 2022/11/21 07:30:25 by berdogan         ###   ########.fr       */
+/*   Updated: 2022/11/21 08:26:26 by berdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,9 +123,10 @@ static	void ft_test2()
 int main(int ac, char *argv[])
 {
 	t_map	map;
+	t_mlx	obj;
 	char	**map_src;
 
 	map_src = ft_error_management (open (argv[1], O_RDONLY), ac, argv[1]);
 	ft_get_map_data(&map, map_src);
-	ft_printf("%d\n", map.wall_nbr);
+	ft_put_map(&map, &obj);
 }
