@@ -6,21 +6,21 @@
 /*   By: berdogan <berdogan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:13:47 by berdogan          #+#    #+#             */
-/*   Updated: 2022/11/20 22:55:22 by berdogan         ###   ########.fr       */
+/*   Updated: 2022/11/21 01:29:41 by berdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
 
-static	void	ft_free_map(char **map)
+void	ft_free_map_src(char **map_src)
 {
 	int	i;
 
 	i = 0;
-	while (map[i])
-		free(map[i++]);
-	free(map);
+	while (map_src[i])
+		free(map_src[i++]);
+	free(map_src);
 }
 
 static	void	ft_check_fd_ac_ber(int fd, int ac, char *str)
@@ -48,7 +48,7 @@ static	void	ft_check_fd_ac_ber(int fd, int ac, char *str)
 	}
 }
 
-void	ft_error_management(int fd,int ac, char *argv)
+char	**ft_error_management(int fd,int ac, char *argv)
 {
 	char	**map;
 	char	*str;
@@ -71,5 +71,6 @@ void	ft_error_management(int fd,int ac, char *argv)
 	}
 	ft_check_walls(map);
 	ft_check_items(map);
-	ft_free_map(map);
+	close (fd);
+	return (map);
 }

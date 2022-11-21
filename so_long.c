@@ -6,7 +6,7 @@
 /*   By: berdogan <berdogan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:10:31 by berdogan          #+#    #+#             */
-/*   Updated: 2022/11/20 22:47:44 by berdogan         ###   ########.fr       */
+/*   Updated: 2022/11/21 05:53:06 by berdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ static	void	ft_test()
 	t_vars	vars;
 
 	mlx = mlx_init();
-	mlx_window = mlx_new_window(mlx, 448, 448, "burak");
+	mlx_window = mlx_new_window(mlx, 320, 256, "burak");
 	x = 0;
 	y = 0;
 	res = mlx_xpm_file_to_image(mlx,"./circle.xpm", &x,&y);
@@ -105,8 +105,26 @@ static	void	ft_test()
 	mlx_loop(mlx);
 }
 */
+/*
+static	void ft_test2()
+{
+	int	x;
+	int	y;
+	x = 0;
+	y = 0;
+	void	*mlx = mlx_init();
+	void	*mlx_window = mlx_new_window(mlx,320,256,"burak");
+	void	*pic = mlx_xpm_file_to_image(mlx,"textures/wall.xpm",&x,&y);
+	mlx_put_image_to_window(mlx, mlx_window, pic, 256, 192);
+	mlx_loop(mlx);
+
+}
+*/
 int main(int ac, char *argv[])
 {
+	t_map	map;
+	char	**map_src;
 
-	ft_error_management (open (argv[1], O_RDONLY),ac, argv[1]);
+	map_src = ft_error_management (open (argv[1], O_RDONLY), ac, argv[1]);
+	ft_get_map_data(&map, map_src);
 }
