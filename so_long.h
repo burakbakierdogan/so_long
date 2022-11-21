@@ -6,7 +6,7 @@
 /*   By: berdogan <berdogan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:12:09 by berdogan          #+#    #+#             */
-/*   Updated: 2022/11/21 04:58:49 by berdogan         ###   ########.fr       */
+/*   Updated: 2022/11/21 06:13:37 by berdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ typedef struct s_map
 	int	res[2];
 	int	wall[1024][1][2];
 	int	wall_nbr;
-	int	space[1024][2];
+	int	space[1024][1][2];
 	int	space_nbr;
 	int	player[2];
-	int	collectible[1024][2];
+	int	collectible[1024][1][2];
 	int	collectible_nbr;
 	int	ex[2];
 }	t_map;

@@ -6,22 +6,11 @@
 /*   By: berdogan <berdogan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:13:47 by berdogan          #+#    #+#             */
-/*   Updated: 2022/11/21 01:29:41 by berdogan         ###   ########.fr       */
+/*   Updated: 2022/11/21 07:23:54 by berdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-
-void	ft_free_map_src(char **map_src)
-{
-	int	i;
-
-	i = 0;
-	while (map_src[i])
-		free(map_src[i++]);
-	free(map_src);
-}
 
 static	void	ft_check_fd_ac_ber(int fd, int ac, char *str)
 {

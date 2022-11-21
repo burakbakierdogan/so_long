@@ -6,7 +6,7 @@
 /*   By: berdogan <berdogan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:10:31 by berdogan          #+#    #+#             */
-/*   Updated: 2022/11/21 05:53:06 by berdogan         ###   ########.fr       */
+/*   Updated: 2022/11/21 07:30:25 by berdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,4 +127,5 @@ int main(int ac, char *argv[])
 
 	map_src = ft_error_management (open (argv[1], O_RDONLY), ac, argv[1]);
 	ft_get_map_data(&map, map_src);
+	ft_printf("%d\n", map.wall_nbr);
 }
