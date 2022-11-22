@@ -6,7 +6,7 @@
 /*   By: berdogan <berdogan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:13:47 by berdogan          #+#    #+#             */
-/*   Updated: 2022/11/21 07:23:54 by berdogan         ###   ########.fr       */
+/*   Updated: 2022/11/22 10:16:30 by berdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static	void	ft_check_fd_ac_ber(int fd, int ac, char *str)
 	if (ac != 2)
 	{
 		ft_printf("AC Error\n");
-		return ;
+		exit (1) ;
 	}
 	len = ft_strlen(str) - 1;
 	if (fd < 0)
