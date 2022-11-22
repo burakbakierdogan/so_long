@@ -6,7 +6,7 @@
 /*   By: berdogan <berdogan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 07:36:47 by berdogan          #+#    #+#             */
-/*   Updated: 2022/11/22 05:46:47 by berdogan         ###   ########.fr       */
+/*   Updated: 2022/11/22 08:26:39 by berdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static	void	ft_create_map(t_mlx *obj, t_map *map)
 	mlx_put_image_to_window(obj -> mlx, obj -> mlx_window,
 			obj -> player, map -> player[0], map -> player[1]);
 	mlx_put_image_to_window(obj -> mlx, obj -> mlx_window,
-			obj -> ext, map -> ex[0], map -> ex[1]);
+			obj -> space, map -> ex[0], map -> ex[1]);
 
 }
 

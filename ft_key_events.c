@@ -6,7 +6,7 @@
 /*   By: berdogan <berdogan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 01:20:43 by berdogan          #+#    #+#             */
-/*   Updated: 2022/11/22 05:47:59 by berdogan         ###   ########.fr       */
+/*   Updated: 2022/11/22 08:52:56 by berdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,9 @@ static	void	ft_move_right(t_map *vars)
 	vars -> player[0] += 64;
 	mlx_put_image_to_window(vars -> obj -> mlx, vars -> obj -> mlx_window,
 		vars -> obj -> player, vars -> player[0], vars -> player[1]);
-	if ((vars -> player[0] == vars -> ex[0] && vars -> player[1] == vars -> ex[1]))
-		mlx_put_image_to_window(vars -> obj -> mlx, vars -> obj -> mlx_window,
-			vars -> obj -> door_p, vars -> player[0], vars -> player[1]);
-	else
-		mlx_put_image_to_window(vars -> obj -> mlx, vars -> obj -> mlx_window,
-			vars -> obj -> space, vars -> player[0] - 64, vars -> player[1]);
-	if (ft_compare_locations(vars -> player[0],
+	mlx_put_image_to_window(vars -> obj -> mlx, vars -> obj -> mlx_window,
+		vars -> obj -> space, vars -> player[0] - 64, vars -> player[1]);
+	/*if (ft_compare_locations(vars -> player[0],
 		vars -> player[1], vars -> collectible, vars -> collectible_nbr) != -1)
 	{
 		vars -> collectible_status++;
@@ -50,12 +46,14 @@ static	void	ft_move_right(t_map *vars)
 			vars -> player[1], vars -> collectible, vars -> collectible_nbr)][0][0] = 0;
 		vars -> collectible[ft_compare_locations(vars -> player[0],
 			vars -> player[1], vars -> collectible, vars -> collectible_nbr)][0][1] = 0;
+
 	}
 	if ((vars -> player[0] == vars -> ex[0] && vars -> player[1] == vars -> ex[1]) &&
 		vars -> collectible_nbr == 0)
 	{
 		exit(1);
 	}
+	*/
 }
 static	void	ft_move_left(t_map *vars)
 {
@@ -65,13 +63,61 @@ static	void	ft_move_left(t_map *vars)
 	vars -> player[0] -= 64;
 	mlx_put_image_to_window(vars -> obj -> mlx, vars -> obj -> mlx_window,
 		vars -> obj -> player, vars -> player[0], vars -> player[1]);
-	if ((vars -> player[0] == vars -> ex[0] && vars -> player[1] == vars -> ex[1]))
-		mlx_put_image_to_window(vars -> obj -> mlx, vars -> obj -> mlx_window,
-			vars -> obj -> door_p, vars -> player[0], vars -> player[1]);
-	else
-		mlx_put_image_to_window(vars -> obj -> mlx, vars -> obj -> mlx_window,
-			vars -> obj -> space, vars -> player[0] + 64, vars -> player[1]);
+	mlx_put_image_to_window(vars -> obj -> mlx, vars -> obj -> mlx_window,
+		vars -> obj -> space, vars -> player[0] + 64, vars -> player[1]);
+	/*if (ft_compare_locations(vars -> player[0],
+		vars -> player[1], vars -> collectible, vars -> collectible_nbr) != -1)
+	{
+		vars -> collectible_status++;
+			vars -> collectible[ft_compare_locations(vars -> player[0],
+			vars -> player[1], vars -> collectible, vars -> collectible_nbr)][0][0] = 0;
+		vars -> collectible[ft_compare_locations(vars -> player[0],
+			vars -> player[1], vars -> collectible, vars -> collectible_nbr)][0][1] = 0;
+
+	}
+	if ((vars -> player[0] == vars -> ex[0] && vars -> player[1] == vars -> ex[1]) &&
+		vars -> collectible_status == vars -> collectible_nbr)
+			exit(1);
+	*/
+}
+
+static	void	ft_move_down(t_map *vars)
+{
 	if (ft_compare_locations(vars -> player[0],
+		vars -> player[1] + 64, vars -> wall, vars -> wall_nbr) != -1)
+			return ;
+	vars -> player[1] += 64;
+	mlx_put_image_to_window(vars -> obj -> mlx, vars -> obj -> mlx_window,
+		vars -> obj -> player, vars -> player[0], vars -> player[1]);
+	mlx_put_image_to_window(vars -> obj -> mlx, vars -> obj -> mlx_window,
+		vars -> obj -> space, vars -> player[0], vars -> player[1] - 64);
+	/*if (ft_compare_locations(vars -> player[0],
+		vars -> player[1], vars -> collectible, vars -> collectible_nbr) != -1)
+	{
+		vars -> collectible_status++;
+			vars -> collectible[ft_compare_locations(vars -> player[0],
+			vars -> player[1], vars -> collectible, vars -> collectible_nbr)][0][0] = 0;
+		vars -> collectible[ft_compare_locations(vars -> player[0],
+			vars -> player[1], vars -> collectible, vars -> collectible_nbr)][0][1] = 0;
+
+	}
+	if ((vars -> player[0] == vars -> ex[0] && vars -> player[1] == vars -> ex[1]) &&
+		vars -> collectible_status == vars -> collectible_nbr)
+			exit(1);
+	*/
+}
+
+static	void	ft_move_up(t_map *vars)
+{
+	if (ft_compare_locations(vars -> player[0],
+		vars -> player[1] - 64, vars -> wall, vars -> wall_nbr) != -1)
+			return ;
+	vars -> player[1] -= 64;
+	mlx_put_image_to_window(vars -> obj -> mlx, vars -> obj -> mlx_window,
+		vars -> obj -> player, vars -> player[0], vars -> player[1]);
+	mlx_put_image_to_window(vars -> obj -> mlx, vars -> obj -> mlx_window,
+		vars -> obj -> space, vars -> player[0], vars -> player[1] + 64);
+	/*if (ft_compare_locations(vars -> player[0],
 		vars -> player[1], vars -> collectible, vars -> collectible_nbr) != -1)
 	{
 		vars -> collectible_status++;
@@ -79,10 +125,12 @@ static	void	ft_move_left(t_map *vars)
 			vars -> player[1], vars -> collectible, vars -> collectible_nbr)][0][0] = 0;
 		vars -> collectible[ft_compare_locations(vars -> player[0],
 			vars -> player[1], vars -> collectible, vars -> collectible_nbr)][0][1] = 0;
+
 	}
 	if ((vars -> player[0] == vars -> ex[0] && vars -> player[1] == vars -> ex[1]) &&
 		vars -> collectible_status == vars -> collectible_nbr)
 			exit(1);
+	*/
 }
 
 static	int	ft_action(int keycode, t_map *vars)
@@ -92,6 +140,13 @@ static	int	ft_action(int keycode, t_map *vars)
 		ft_move_right(vars);
 	if (keycode == 97)
 		ft_move_left(vars);
+	if (keycode == 115)
+		ft_move_down(vars);
+	if (keycode == 119)
+		ft_move_up(vars);
+	if (vars -> collectible_status == vars -> collectible_nbr)
+		mlx_put_image_to_window(vars -> obj -> mlx, vars -> obj -> mlx_window,
+			vars -> obj -> door_p, vars -> ex[0], vars -> player[1]);
 	return (0);
 }
 
