@@ -6,7 +6,7 @@
 /*   By: berdogan <berdogan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 07:36:47 by berdogan          #+#    #+#             */
-/*   Updated: 2022/11/21 23:43:05 by berdogan         ###   ########.fr       */
+/*   Updated: 2022/11/22 05:46:47 by berdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static	void	ft_create_map(t_mlx *obj, t_map *map)
 			obj -> player, map -> player[0], map -> player[1]);
 	mlx_put_image_to_window(obj -> mlx, obj -> mlx_window,
 			obj -> ext, map -> ex[0], map -> ex[1]);
-	mlx_loop(obj -> mlx);
+
 }
 
 static	void	ft_get_data(t_mlx *obj, t_map *map)
@@ -66,6 +66,7 @@ static	void	ft_get_data(t_mlx *obj, t_map *map)
 	obj -> space = mlx_xpm_file_to_image(obj -> mlx, "./textures/ground.xpm", &x, &y);
 	obj -> collectible = mlx_xpm_file_to_image(obj -> mlx, "./textures/collectible.xpm", &x, &y);
 	obj -> ext = mlx_xpm_file_to_image(obj -> mlx, "./textures/exit.xpm", &x, &y);
+	obj -> door_p = mlx_xpm_file_to_image(obj -> mlx, "./textures/door_p.xpm", &x, &y);
 }
 
 void	ft_put_map(t_map *map, t_mlx *obj)

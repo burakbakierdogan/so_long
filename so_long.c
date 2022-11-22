@@ -6,7 +6,7 @@
 /*   By: berdogan <berdogan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:10:31 by berdogan          #+#    #+#             */
-/*   Updated: 2022/11/21 08:26:26 by berdogan         ###   ########.fr       */
+/*   Updated: 2022/11/22 02:09:58 by berdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,4 +129,7 @@ int main(int ac, char *argv[])
 	map_src = ft_error_management (open (argv[1], O_RDONLY), ac, argv[1]);
 	ft_get_map_data(&map, map_src);
 	ft_put_map(&map, &obj);
+	map.obj = &obj;
+	ft_key_events(&map, &obj);
+	mlx_loop(obj.mlx);
 }
