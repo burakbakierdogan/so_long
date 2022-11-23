@@ -6,7 +6,7 @@
 /*   By: berdogan <berdogan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 01:20:43 by berdogan          #+#    #+#             */
-/*   Updated: 2022/11/23 17:00:02 by berdogan         ###   ########.fr       */
+/*   Updated: 2022/11/23 18:48:56 by berdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static	void	ft_exit(t_map *map, int status)
 	free(map -> obj -> mlx);
 	free(map -> obj -> mlx_window);
 	if (status)
-		ft_printf("Congraculation! You Win\n");
+		ft_printf("congratulations! You Win\n");
 	exit (1);
 }
 
@@ -147,6 +147,9 @@ static	void	ft_move_up(t_map *vars)
 
 static	int	ft_action(int keycode, t_map *vars)
 {
+	char	*str;
+
+
 	if (keycode == 2)
 		ft_move_right(vars);
 	if (keycode == 0)
@@ -158,7 +161,13 @@ static	int	ft_action(int keycode, t_map *vars)
 	if (keycode == 53)
 		ft_exit(vars, 0);
 	else
+	{
 		ft_printf("%d\n", ++vars -> move);
+		str = ft_itoa_base_v2(vars -> move, 10, 'X');
+		mlx_string_put(vars ->obj -> mlx, vars -> obj -> mlx_window,
+			32, 32, 0X00FF0000, str);
+		free(str);
+	}
 	if (vars -> collectible_status == vars -> collectible_nbr)
 		mlx_put_image_to_window(vars -> obj -> mlx, vars -> obj -> mlx_window,
 			vars -> obj -> ext, vars -> ex[0], vars -> ex[1]);
