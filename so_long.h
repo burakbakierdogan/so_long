@@ -6,7 +6,7 @@
 /*   By: berdogan <berdogan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:12:09 by berdogan          #+#    #+#             */
-/*   Updated: 2022/11/22 12:16:42 by berdogan         ###   ########.fr       */
+/*   Updated: 2022/11/23 16:51:05 by berdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ typedef struct s_mlx
 	void	*space;
 	void	*ext;
 	void	*player;
-	void	*door_p;
 }	t_mlx;
 
 typedef struct s_map
@@ -39,6 +38,7 @@ typedef struct s_map
 	int	collectible_nbr;
 	int	collectible_status;
 	int	ex[2];
+	int	move;
 	t_mlx	*obj;
 }	t_map;
 

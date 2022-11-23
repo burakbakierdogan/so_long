@@ -6,12 +6,26 @@
 /*   By: berdogan <berdogan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 01:20:43 by berdogan          #+#    #+#             */
-/*   Updated: 2022/11/22 13:47:15 by berdogan         ###   ########.fr       */
+/*   Updated: 2022/11/23 17:00:02 by berdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 #include "mlx.h"
+
+static	void	ft_exit(t_map *map, int status)
+{
+	free(map -> obj -> ext);
+	free(map -> obj -> player);
+	free(map -> obj -> space);
+	free(map -> obj -> collectible);
+	free(map -> obj -> wall);
+	free(map -> obj -> mlx);
+	free(map -> obj -> mlx_window);
+	if (status)
+		ft_printf("Congraculation! You Win\n");
+	exit (1);
+}
 
 static	int	ft_compare_locations(int x, int y, int arr[1024][1][2], int size)
 {
@@ -50,8 +64,9 @@ static	void	ft_move_right(t_map *vars)
 	}
 	if ((vars -> player[0] == vars -> ex[0] && vars -> player[1] == vars -> ex[1]) &&
 		vars -> collectible_status == vars -> collectible_nbr)
-			exit(1);
+			ft_exit(vars, 1);
 }
+
 static	void	ft_move_left(t_map *vars)
 {
 	int	i;
@@ -76,7 +91,7 @@ static	void	ft_move_left(t_map *vars)
 
 	if ((vars -> player[0] == vars -> ex[0] && vars -> player[1] == vars -> ex[1]) &&
 		vars -> collectible_status == vars -> collectible_nbr)
-			exit(1);
+			ft_exit(vars, 1);
 }
 
 static	void	ft_move_down(t_map *vars)
@@ -101,9 +116,7 @@ static	void	ft_move_down(t_map *vars)
 	}
 	if ((vars -> player[0] == vars -> ex[0] && vars -> player[1] == vars -> ex[1]) &&
 		vars -> collectible_status == vars -> collectible_nbr)
-			exit(1);
-	ft_printf("\a");
-
+			ft_exit(vars,1);
 }
 
 static	void	ft_move_up(t_map *vars)
@@ -127,15 +140,13 @@ static	void	ft_move_up(t_map *vars)
 		vars -> collectible[i][0][1] = 0;
 		vars -> collectible_status++;
 	}
-	ft_printf("\a");
 	if ((vars -> player[0] == vars -> ex[0] && vars -> player[1] == vars -> ex[1]) &&
 		vars -> collectible_status == vars -> collectible_nbr)
-			exit(1);
+			ft_exit(vars, 1);
 }
 
 static	int	ft_action(int keycode, t_map *vars)
 {
-
 	if (keycode == 2)
 		ft_move_right(vars);
 	if (keycode == 0)
@@ -144,6 +155,10 @@ static	int	ft_action(int keycode, t_map *vars)
 		ft_move_down(vars);
 	if (keycode == 13)
 		ft_move_up(vars);
+	if (keycode == 53)
+		ft_exit(vars, 0);
+	else
+		ft_printf("%d\n", ++vars -> move);
 	if (vars -> collectible_status == vars -> collectible_nbr)
 		mlx_put_image_to_window(vars -> obj -> mlx, vars -> obj -> mlx_window,
 			vars -> obj -> ext, vars -> ex[0], vars -> ex[1]);

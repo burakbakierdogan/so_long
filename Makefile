@@ -6,7 +6,7 @@
 #    By: berdogan <berdogan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/01 11:51:47 by berdogan          #+#    #+#              #
-#    Updated: 2022/11/22 01:23:04 by berdogan         ###   ########.fr        #
+#    Updated: 2022/11/23 17:05:42 by berdogan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,4 +32,7 @@ clean:
 fclean: clean
 	make -C ./libft fclean
 	rm -rf so_long
+re:	fclean all
+normi: $(SRCS)
+	norminette $(SRCS)
 .PHONY: Libft
