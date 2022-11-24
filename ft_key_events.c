@@ -6,7 +6,7 @@
 /*   By: berdogan <berdogan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 01:20:43 by berdogan          #+#    #+#             */
-/*   Updated: 2022/11/23 18:48:56 by berdogan         ###   ########.fr       */
+/*   Updated: 2022/11/24 08:38:24 by berdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static	void	ft_exit(t_map *map, int status)
 	free(map -> obj -> mlx);
 	free(map -> obj -> mlx_window);
 	if (status)
-		ft_printf("congratulations! You Win\n");
+		ft_printf("Congratulations! You Win!\n");
 	exit (1);
 }
 
@@ -150,15 +150,15 @@ static	int	ft_action(int keycode, t_map *vars)
 	char	*str;
 
 
-	if (keycode == 2)
+	if (keycode == D)
 		ft_move_right(vars);
-	if (keycode == 0)
+	if (keycode == A)
 		ft_move_left(vars);
-	if (keycode == 1)
+	if (keycode == S)
 		ft_move_down(vars);
-	if (keycode == 13)
+	if (keycode == W)
 		ft_move_up(vars);
-	if (keycode == 53)
+	if (keycode == ESC)
 		ft_exit(vars, 0);
 	else
 	{

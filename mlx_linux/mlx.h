@@ -1,9 +1,9 @@
 /*
-** mlx.h for MinilibX in 
-** 
+** mlx.h for MinilibX in
+**
 ** Made by Charlie Root
 ** Login   <ol@epitech.net>
-** 
+**
 ** Started on  Mon Jul 31 16:37:50 2000 Charlie Root
 ** Last update Tue May 15 16:23:28 2007 Olivier Crouzet
 */
@@ -135,5 +135,11 @@ int	mlx_mouse_hide(void *mlx_ptr, void *win_ptr);
 int	mlx_mouse_show(void *mlx_ptr, void *win_ptr);
 
 int	mlx_get_screen_size(void *mlx_ptr, int *sizex, int *sizey);
+
+# define W 119
+# define S 115
+# define A 97
+# define D 100
+# define ESC 27
 
 #endif /* MLX_H */
