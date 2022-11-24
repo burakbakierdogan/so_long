@@ -6,7 +6,7 @@
 /*   By: berdogan <berdogan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:13:47 by berdogan          #+#    #+#             */
-/*   Updated: 2022/11/24 11:43:10 by berdogan         ###   ########.fr       */
+/*   Updated: 2022/11/24 17:31:01 by berdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,36 +76,90 @@ static	void	ft_alter_map(char **map)
 	}
 }
 
-static	void	ft_get_distance(char **map)
+int	ft_get_top(char **src)
 {
 	int	i;
 	int	j;
+	int	top;
+
+	i = -1;
+	j = 0;
+	top = 0;
+	while (src[++i])
+	{
+		while (src[i][++j])
+			if (src[i][j] == '2')
+					return (top);
+		j = 0;
+		top++;
+	}
+	return (top);
+}
+
+int	ft_get_bottom(char **src)
+{
+	int	i;
+	int	j;
+	int	bottom;
 	int	k;
-	int	arr[1024];
 
 	i = 0;
 	j = 0;
 	k = 0;
-	while (map[++i])
+	while (src[i])
+		i++;
+	bottom = i - 1;
+	while (--i >= 0)
 	{
-		while (map[i][++j])
-		{
-			if (map[i][j] == '2')
-				arr[k++] = j;
-		}
+		while (src[i][++j])
+			if (src[i][j] == '2')
+					return (bottom);
+		j = 0;
+		bottom--;
 	}
-	k = ft_
+	return (bottom);
+}
 
+void	ft_get_sides(char **src, t_nmap *nmap)
+{
+	int	i;
+	int	j;
+	int	*ptr;
+	int	k;
+
+	i = -1;
+	j = -1;
+	k = 0;
+	ptr = malloc (sizeof(int) * 1024);
+	if (!ptr)
+	{
+		perror("malloc error!\n");
+		exit(1);
+	}
+	while (src[++i])
+	{
+		while (src[i][++j])
+			if (src[i][j] == '2')
+				ptr[k++] = j;
+		j = -1;
+	}
+	nmap -> l_side = ft_min(ptr, k);
+	nmap -> r_side = ft_max(ptr, k);
+	free(ptr);
 }
 
 static	void	ft_check_path(char **map)
 {
-	char	**new_map;
+	char		**new_map;
+	t_nmap	nmap;
 
 	new_map = ft_create_new_map(map);
 	ft_alter_map(new_map);
-
-
+	nmap.top= ft_get_top(new_map);
+	nmap.bottom = ft_get_bottom(new_map);
+	ft_get_sides(new_map, &nmap);
+	ft_printf("top = %d bottom = %d left = %d right = %d\n", nmap.top, nmap.bottom, nmap.l_side, nmap.r_side);
+	ft_free_map_src(new_map);
 }
 
 char	**ft_error_management(int fd,int ac, char *argv)

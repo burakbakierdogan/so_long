@@ -6,7 +6,7 @@
 /*   By: berdogan <berdogan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:12:09 by berdogan          #+#    #+#             */
-/*   Updated: 2022/11/23 16:51:05 by berdogan         ###   ########.fr       */
+/*   Updated: 2022/11/24 16:14:08 by berdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,15 @@ typedef struct s_map
 	t_mlx	*obj;
 }	t_map;
 
+typedef struct s_nmap
+{
+	int	top;
+	int	bottom;
+	int	l_side;
+	int	r_side;
+	int	i;
+	int	j;
+}	t_nmap;
 
 
 typedef struct s_vars
