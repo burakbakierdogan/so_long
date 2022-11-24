@@ -6,7 +6,7 @@
 /*   By: berdogan <berdogan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:13:47 by berdogan          #+#    #+#             */
-/*   Updated: 2022/11/24 17:31:01 by berdogan         ###   ########.fr       */
+/*   Updated: 2022/11/24 18:42:37 by berdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,6 +148,45 @@ void	ft_get_sides(char **src, t_nmap *nmap)
 	free(ptr);
 }
 
+int	ft_check_vertical_line(char **map, t_nmap *nmap)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (nmap -> top <= nmap -> bottom)
+	{
+
+	}
+}
+
+void	ft_walk_path(char **map, t_nmap *nmap)
+{
+	int	i;
+	int	k;
+
+	k = 0;
+	i = nmap -> l_side;
+	while (nmap -> top <= nmap -> bottom)
+	{
+		while (nmap -> l_side++ <= nmap -> r_side)
+		{
+			if (map[nmap -> top][nmap -> l_side] == '0'
+				|| map[nmap -> top][nmap -> l_side] == '2')
+				k++;
+		}
+		if (k == 0)
+		{
+			ft_printf("map path error\n");
+			exit (1);
+		}
+		k = 0;
+		nmap -> l_side = i;
+		nmap -> top++;
+	}
+}
+
 static	void	ft_check_path(char **map)
 {
 	char		**new_map;
@@ -158,7 +197,9 @@ static	void	ft_check_path(char **map)
 	nmap.top= ft_get_top(new_map);
 	nmap.bottom = ft_get_bottom(new_map);
 	ft_get_sides(new_map, &nmap);
-	ft_printf("top = %d bottom = %d left = %d right = %d\n", nmap.top, nmap.bottom, nmap.l_side, nmap.r_side);
+	ft_walk_path(new_map, &nmap);
+	ft_printf("top = %d  bottom = %d  left = %d  right =%d\n"
+		, nmap.top, nmap.bottom, nmap.l_side, nmap.r_side);
 	ft_free_map_src(new_map);
 }
 
