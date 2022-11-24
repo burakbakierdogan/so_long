@@ -6,7 +6,7 @@
 /*   By: berdogan <berdogan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:13:47 by berdogan          #+#    #+#             */
-/*   Updated: 2022/11/24 08:40:22 by berdogan         ###   ########.fr       */
+/*   Updated: 2022/11/24 11:43:10 by berdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,77 @@ static	void	ft_check_fd_ac_ber(int fd, int ac, char *str)
 	}
 }
 
+static	char	**ft_create_new_map(char **map)
+{
+	int		i;
+	char	**new;
+	int		j;
+
+	i = 0;
+	j = 0;
+	while (map[i])
+		i++;
+	new = malloc (sizeof(char *) * (i + 1));
+	if (!new)
+	{
+		perror("malloc failed");
+		exit(1);
+	}
+	i = -1;
+	while (map[++i])
+		new[i] = ft_strdup(map[i]);
+	return (new);
+}
+
+static	void	ft_alter_map(char **map)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (map[++i])
+	{
+		while (map[i][++j])
+			if (map[i][j] == 'C' || map[i][j] == 'P'
+			|| map[i][j] == 'E')
+				map[i][j] = '2';
+		j = 0;
+	}
+}
+
+static	void	ft_get_distance(char **map)
+{
+	int	i;
+	int	j;
+	int	k;
+	int	arr[1024];
+
+	i = 0;
+	j = 0;
+	k = 0;
+	while (map[++i])
+	{
+		while (map[i][++j])
+		{
+			if (map[i][j] == '2')
+				arr[k++] = j;
+		}
+	}
+	k = ft_
+
+}
+
+static	void	ft_check_path(char **map)
+{
+	char	**new_map;
+
+	new_map = ft_create_new_map(map);
+	ft_alter_map(new_map);
+
+
+}
+
 char	**ft_error_management(int fd,int ac, char *argv)
 {
 	char	**map;
@@ -60,6 +131,7 @@ char	**ft_error_management(int fd,int ac, char *argv)
 	}
 	ft_check_walls(map);
 	ft_check_items(map);
+	ft_check_path(map);
 	close (fd);
 	return (map);
 }

@@ -6,7 +6,7 @@
 /*   By: berdogan <berdogan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 11:12:41 by berdogan          #+#    #+#             */
-/*   Updated: 2022/11/14 17:47:54 by berdogan         ###   ########.fr       */
+/*   Updated: 2022/11/24 11:42:05 by berdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,4 +103,5 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del) (void *));
 char	*ft_itoa_base_v2(int nbr, int base, char format);
 char	*ft_revstr(char *str);
 int		ft_max(int	*tab, int len);
+int		ft_min(int *tab, int len);
 #endif
