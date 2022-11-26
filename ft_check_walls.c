@@ -6,7 +6,7 @@
 /*   By: berdogan <berdogan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 01:01:07 by berdogan          #+#    #+#             */
-/*   Updated: 2022/11/26 11:57:17 by berdogan         ###   ########.fr       */
+/*   Updated: 2022/11/26 14:57:42 by berdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static	void	ft_check_side_walls(char **map)
 	{
 		if (map[i][0] != '1' || map[i][j] != '1')
 		{
-			ft_printf("Error\n");
+			ft_printf("Side Wall Error\n");
 			exit(1);
 		}
 		i--;
@@ -55,7 +55,7 @@ static	void	ft_check_bottom_wall(char **map)
 	{
 		if (map[i][j] != '1')
 		{
-			ft_printf("Error\n");
+			ft_printf("Bottom Wall Error\n");
 			exit(1);
 		}
 		j++;
@@ -76,7 +76,7 @@ static	void	ft_check_top_wall(char **map)
 	{
 		if (map[0][i] != '1')
 		{
-			ft_printf ("Error\n");
+			ft_printf ("Top Wall Error\n");
 			exit (1);
 		}
 		i++;
@@ -84,7 +84,7 @@ static	void	ft_check_top_wall(char **map)
 	i--;
 	if (i < 2 || i == j)
 	{
-		ft_printf ("Error\n");
+		ft_printf ("Map Shape Error\n");
 		exit (1);
 	}
 }

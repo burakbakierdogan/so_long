@@ -6,7 +6,7 @@
 /*   By: berdogan <berdogan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 01:20:43 by berdogan          #+#    #+#             */
-/*   Updated: 2022/11/26 13:37:26 by berdogan         ###   ########.fr       */
+/*   Updated: 2022/11/26 14:27:19 by berdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,6 @@ int	ft_compare_locations(int x, int y, int arr[2048][1][2], int size)
 
 static	int	ft_action(int keycode, t_map *vars)
 {
-	char	*str;
-
 	if (keycode == D)
 		ft_move_right(vars);
 	if (keycode == A)
@@ -56,15 +54,7 @@ static	int	ft_action(int keycode, t_map *vars)
 	if (keycode == ESC)
 		ft_exit(vars, 0);
 	else
-	{
-		ft_printf("%d\n", ++vars -> move);
-		str = ft_itoa_base_v2(vars -> move, 10, 'X');
-		mlx_put_image_to_window(vars -> obj -> mlx, vars -> obj -> mlx_window,
-			vars -> obj -> wall, 0, 0);
-		mlx_string_put(vars ->obj -> mlx, vars -> obj -> mlx_window,
-			32, 32, 0XFFFFFF, str);
-		free(str);
-	}
+		ft_print(vars);
 	if (vars -> collectible_status == vars -> collectible_nbr)
 		mlx_put_image_to_window(vars -> obj -> mlx, vars -> obj -> mlx_window,
 			vars -> obj -> ext, vars -> ex[0], vars -> ex[1]);

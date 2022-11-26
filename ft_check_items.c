@@ -6,7 +6,7 @@
 /*   By: berdogan <berdogan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 01:19:42 by berdogan          #+#    #+#             */
-/*   Updated: 2022/11/26 11:21:13 by berdogan         ###   ########.fr       */
+/*   Updated: 2022/11/26 14:58:47 by berdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static	void	ft_check(char **map, char c)
 	if (((total == 0 || total > 1) && (c == 'P' || c == 'E'))
 		|| ((c == 'C' || c == '0') && total == 0))
 	{
-		ft_printf ("Error\n");
+		ft_printf ("Item Error\n");
 		exit (1);
 	}
 }

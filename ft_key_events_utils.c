@@ -6,7 +6,7 @@
 /*   By: berdogan <berdogan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 12:48:14 by berdogan          #+#    #+#             */
-/*   Updated: 2022/11/26 13:14:22 by berdogan         ###   ########.fr       */
+/*   Updated: 2022/11/26 15:01:45 by berdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,4 +119,17 @@ void	ft_move_right(t_map *vars)
 			&& vars -> player[1] == vars -> ex[1])
 		&& vars -> collectible_status == vars -> collectible_nbr)
 		ft_exit(vars, 1);
+}
+
+void	ft_print(t_map *vars)
+{
+	char	*str;
+
+	++vars -> move;
+	str = ft_itoa_base_v2(vars -> move, 10, 'X');
+	mlx_put_image_to_window(vars -> obj -> mlx, vars -> obj -> mlx_window,
+		vars -> obj -> wall, 0, 0);
+	mlx_string_put(vars ->obj -> mlx, vars -> obj -> mlx_window,
+		32, 32, 0XFFFFFF, str);
+	free(str);
 }
