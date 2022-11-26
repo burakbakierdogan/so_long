@@ -6,14 +6,14 @@
 /*   By: berdogan <berdogan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:10:31 by berdogan          #+#    #+#             */
-/*   Updated: 2022/11/26 07:28:07 by berdogan         ###   ########.fr       */
+/*   Updated: 2022/11/26 13:18:16 by berdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 #include "mlx.h"
 
-int main(int ac, char *argv[])
+int	main(int ac, char *argv[])
 {
 	t_map	map;
 	t_mlx	obj;

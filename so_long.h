@@ -6,7 +6,7 @@
 /*   By: berdogan <berdogan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:12:09 by berdogan          #+#    #+#             */
-/*   Updated: 2022/11/26 07:29:38 by berdogan         ###   ########.fr       */
+/*   Updated: 2022/11/26 13:02:00 by berdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,16 +43,6 @@ typedef struct s_map
 	t_mlx	*obj;
 }	t_map;
 
-typedef struct s_nmap
-{
-	int	top;
-	int	bottom;
-	int	l_side;
-	int	r_side;
-	int	i;
-	int	j;
-}	t_nmap;
-
 char	**ft_error_management(int fd,int ac, char *argv);
 void	ft_check_walls(char **map);
 void	ft_check_items(char **map);
@@ -62,4 +52,17 @@ void	ft_put_map(t_map *map, t_mlx *obj);
 void	ft_key_events(t_map *map);
 void	ft_check_path(t_map *map);
 int		ft_compare_locations(int x, int y, int arr[2048][1][2], int size);
+void	ft_moveright(t_map *map, int x, int y);
+void	ft_moveleft(t_map *map, int x, int y);
+void	ft_movedown(t_map *map, int x, int y);
+void	ft_move_around(t_map *map, int x, int y);
+int		ft_strlen_nl(char *src);
+void	ft_get_player_location(t_map *map, char **map_src, char c);
+void	ft_get_collectible_locations(t_map *map, char **map_src, char c);
+void	ft_get_exit_location(t_map *map, char **map_src, char c);
+void	ft_move_up(t_map *vars);
+void	ft_move_down(t_map *vars);
+void	ft_move_left(t_map *vars);
+void	ft_exit(t_map *map, int status);
+void	ft_move_right(t_map *vars);
 #endif

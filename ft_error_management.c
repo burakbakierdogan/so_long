@@ -6,7 +6,7 @@
 /*   By: berdogan <berdogan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:13:47 by berdogan          #+#    #+#             */
-/*   Updated: 2022/11/25 09:33:54 by berdogan         ###   ########.fr       */
+/*   Updated: 2022/11/26 11:11:43 by berdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static	void	ft_check_fd_ac_ber(int fd, int ac, char *str)
 	if (ac != 2)
 	{
 		ft_printf("AC Error\n");
-		exit (1) ;
+		exit (1);
 	}
 	len = ft_strlen(str) - 1;
 	if (fd < 0)
@@ -27,9 +27,9 @@ static	void	ft_check_fd_ac_ber(int fd, int ac, char *str)
 		perror ("fd error");
 		exit (1);
 	}
-	if (str[len] == 'r' && str[len - 1] == 'e' &&
-		str[len - 2] == 'b' && str[len - 3] == '.')
-			return ;
+	if (str[len] == 'r' && str[len - 1] == 'e'
+		&& str[len - 2] == 'b' && str[len - 3] == '.')
+		return ;
 	else
 	{
 		ft_printf("Map is not a ber file!\n");
@@ -37,31 +37,7 @@ static	void	ft_check_fd_ac_ber(int fd, int ac, char *str)
 	}
 }
 
-/*
-static	char	**ft_create_new_map(char **map)
-{
-	int		i;
-	char	**new;
-	int		j;
-
-	i = 0;
-	j = 0;
-	while (map[i])
-		i++;
-	new = malloc (sizeof(char *) * (i + 1));
-	if (!new)
-	{
-		perror("malloc failed");
-		exit(1);
-	}
-	i = -1;
-	while (map[++i])
-		new[i] = ft_strdup(map[i]);
-	return (new);
-}
-*/
-
-char	**ft_error_management(int fd,int ac, char *argv)
+char	**ft_error_management(int fd, int ac, char *argv)
 {
 	char	**map;
 	char	*str;
