@@ -1,9 +1,9 @@
 # so_long
 This is a game project.
 I developed a game from the scratch.
-The game goal is collect the collectibles and go exit.
-I use Minilibx library to create window and images.
+The game's goal is collect the red collectibles and go to exit and finish the game.
 
+I use minilibx functions to put open a window and put images to window.
 The minilibx is a small C library used for rendering graphics, primarily used by 42 students. As the name implies, this library is built on top of the X Window System API, to provide a much simpler programming interface suited for beginners
 
 Compilation on macOS
