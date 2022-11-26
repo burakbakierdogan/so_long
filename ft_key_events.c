@@ -6,7 +6,7 @@
 /*   By: berdogan <berdogan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 01:20:43 by berdogan          #+#    #+#             */
-/*   Updated: 2022/11/26 04:58:36 by berdogan         ###   ########.fr       */
+/*   Updated: 2022/11/26 07:27:34 by berdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,11 +174,7 @@ static	int	ft_action(int keycode, t_map *vars)
 	return (0);
 }
 
-void	ft_key_events(t_map *map, t_mlx *obj)
+void	ft_key_events(t_map *map)
 {
-	t_vars vars;
-
-	vars.map = map;
-	vars.obj = obj;
-	mlx_hook(obj -> mlx_window, 2, 1L<<0, ft_action, map);
+	mlx_hook(map -> obj -> mlx_window, 2, 1L<<0, ft_action, map);
 }

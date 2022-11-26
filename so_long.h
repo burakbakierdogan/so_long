@@ -6,7 +6,7 @@
 /*   By: berdogan <berdogan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:12:09 by berdogan          #+#    #+#             */
-/*   Updated: 2022/11/26 07:22:34 by berdogan         ###   ########.fr       */
+/*   Updated: 2022/11/26 07:29:38 by berdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,19 +53,13 @@ typedef struct s_nmap
 	int	j;
 }	t_nmap;
 
-typedef struct s_vars
-{
-	t_mlx *obj;
-	t_map *map;
-}	t_vars;
-
 char	**ft_error_management(int fd,int ac, char *argv);
 void	ft_check_walls(char **map);
 void	ft_check_items(char **map);
 void	ft_get_map_data(t_map *map, char **map_src);
 void	ft_free_map_src(char **map_src);
 void	ft_put_map(t_map *map, t_mlx *obj);
-void	ft_key_events(t_map *map, t_mlx *obj);
+void	ft_key_events(t_map *map);
 void	ft_check_path(t_map *map);
 int		ft_compare_locations(int x, int y, int arr[2048][1][2], int size);
 #endif

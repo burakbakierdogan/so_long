@@ -6,7 +6,7 @@
 /*   By: berdogan <berdogan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:10:31 by berdogan          #+#    #+#             */
-/*   Updated: 2022/11/26 07:20:54 by berdogan         ###   ########.fr       */
+/*   Updated: 2022/11/26 07:28:07 by berdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ int main(int ac, char *argv[])
 	ft_check_path(&map);
 	ft_put_map(&map, &obj);
 	map.obj = &obj;
-	ft_key_events(&map, &obj);
+	ft_key_events(&map);
 	mlx_loop(obj.mlx);
 }
