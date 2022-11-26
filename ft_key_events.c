@@ -6,7 +6,7 @@
 /*   By: berdogan <berdogan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 01:20:43 by berdogan          #+#    #+#             */
-/*   Updated: 2022/11/26 13:22:05 by berdogan         ###   ########.fr       */
+/*   Updated: 2022/11/26 13:37:26 by berdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,10 @@ static	int	ft_action(int keycode, t_map *vars)
 	{
 		ft_printf("%d\n", ++vars -> move);
 		str = ft_itoa_base_v2(vars -> move, 10, 'X');
+		mlx_put_image_to_window(vars -> obj -> mlx, vars -> obj -> mlx_window,
+			vars -> obj -> wall, 0, 0);
 		mlx_string_put(vars ->obj -> mlx, vars -> obj -> mlx_window,
-			32, 32, 0X00FF0000, str);
+			32, 32, 0XFFFFFF, str);
 		free(str);
 	}
 	if (vars -> collectible_status == vars -> collectible_nbr)
@@ -69,7 +71,15 @@ static	int	ft_action(int keycode, t_map *vars)
 	return (0);
 }
 
+static	int	ft_close(int keycode, t_map *map)
+{
+	keycode = 0;
+	ft_exit(map, keycode);
+	return (0);
+}
+
 void	ft_key_events(t_map *map)
 {
+	mlx_hook(map -> obj -> mlx_window, 17, 0, ft_close, map);
 	mlx_hook(map -> obj -> mlx_window, 2, 1L << 0, ft_action, map);
 }
