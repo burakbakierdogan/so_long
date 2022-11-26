@@ -4,6 +4,8 @@ I developed a game from the scratch.
 The game goal is collect the collectibles and go exit.
 I use Minilibx library to create window and images.
 
+The minilibx is a small C library used for rendering graphics, primarily used by 42 students. As the name implies, this library is built on top of the X Window System API, to provide a much simpler programming interface suited for beginners
+
 Compilation on macOS
 use make command in the terminal to compile the executable.
 MiniLibX requires Cocoa of MacOSX (AppKit) and OpenGL (it doesn’t use X11 anymore) we need to link them accordingly. This can cause a complicated compilation process. 
