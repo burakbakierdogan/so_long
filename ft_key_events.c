@@ -6,7 +6,7 @@
 /*   By: berdogan <berdogan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 01:20:43 by berdogan          #+#    #+#             */
-/*   Updated: 2022/11/24 08:38:24 by berdogan         ###   ########.fr       */
+/*   Updated: 2022/11/26 04:58:36 by berdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static	void	ft_exit(t_map *map, int status)
 	exit (1);
 }
 
-static	int	ft_compare_locations(int x, int y, int arr[1024][1][2], int size)
+int	ft_compare_locations(int x, int y, int arr[2048][1][2], int size)
 {
 	int	i;
 

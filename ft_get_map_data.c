@@ -6,7 +6,7 @@
 /*   By: berdogan <berdogan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 00:13:16 by berdogan          #+#    #+#             */
-/*   Updated: 2022/11/23 16:55:57 by berdogan         ###   ########.fr       */
+/*   Updated: 2022/11/26 05:13:44 by berdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,6 +174,7 @@ void	ft_get_map_data(t_map *map, char **map_src)
 	map -> space_nbr = 0;
 	map -> collectible_status = 0;
 	map -> move = 0;
+	map -> ex_status = 1;
 	ft_get_wall_locations(map, map_src, '1');
 	ft_get_space_locations(map, map_src, '0');
 	ft_get_collectible_locations(map, map_src, 'C');
