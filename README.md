@@ -1,12 +1,5 @@
 # so_long
 
-Summary:
-on terminal:
-make on macOS
-make Linux on GNU Linux
-then run this command in so long directory.
-./so_long ./maps/map.ber 
-
 This is a game project.
 I developed a game from the scratch.
 The game's goal is collect the red collectibles and go to exit and finish the game.
